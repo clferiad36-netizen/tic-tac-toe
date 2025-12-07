@@ -199,6 +199,7 @@ var guardarJugador = function (e) {
     txtJugador.classList.remove("error");
     if (txtJugador.value === "") {
         txtJugador.classList.add("error");
+        localStorage.removeItem(txtJugador.id);
     } else {
         var key = txtJugador.id;
         var value = txtJugador.value;
@@ -245,7 +246,7 @@ window.onload = function () {
             ) {
         var jd1 = localStorage.getItem("jugador1");
         var jd2 = localStorage.getItem("jugador2");
-        if (jd1 === null || jd2 === null) {
+        if (!jd1 || !jd2 || jd1.trim() === "" || jd2.trim() === "") {
             alert("Guarde los nombres de los jugadores");
         } else {
             btnSaveGamer1.classList.add("oculto");
