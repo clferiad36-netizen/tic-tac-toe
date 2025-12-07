@@ -148,7 +148,12 @@ var inicio_juego = function () {
         rol_gamer2.innerHTML = "X";
         gamer2.classList.add("rolx");
     }
-    asignar_turno(true);
+    var primer_turno = aleatorio(2);
+    if (primer_turno === 1) {
+        asignar_turno(true);
+    } else {
+        asignar_turno(false);
+    }
     inicio_tiempo();
 };
 
